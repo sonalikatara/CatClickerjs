@@ -18,8 +18,9 @@ $(document).ready(function(){
          if (cats.cats.length !=0 ){
            for (cat in cats.cats)
            {
-             var showClickCount ="<div id = 'showClickCount' class='lead text-center'>Your Click Count Score is <span id='clickCount'>1</span>";
-             var catImage = "<figure id='showCats' class='text-center'><img id='catImg' class='img-polaroid' src='" + cats.cats[cat].image +"' onClick='catClicked(this)' alt='cat' ><figcaption> Click " + cats.cats[cat].name + " ! </figcaption></figure></div>";
+            // to create a unique ID , we assign a numet to the image as it's id and concat the same unique number to rest of the id's to make them unique
+             var showClickCount ="<div class='lead text-center '><hr>Your Click Count Score is <strong><span id='clickCount" + cat + "'>1</span></strong>";
+             var catImage = "<figure id='showCats' class='text-center'><img id='"+ cat +"' class='img-polaroid' src='" + cats.cats[cat].image +"' onClick='catClicked(this)' alt='cat' ><figcaption> Click " + cats.cats[cat].name + " ! </figcaption></figure></div>";
              console.log(catImage);
              allCats.append(showClickCount + catImage);
            }
@@ -31,8 +32,8 @@ $(document).ready(function(){
 function catClicked(e){
         // the image has been clicked... increase the click count
         var thisCat = e.id;
-        var count = $(thisCat).prevUntil("spam").text();
+        var count = $('#clickCount'+thisCat).text();
         var clicks = parseInt(count) + 1;
-        $(thisCat).parent().parent().children('clickCount').text(clicks);
+        $('#clickCount'+thisCat).text(clicks);
 
     };

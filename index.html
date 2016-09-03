@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Cat Clicker</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="bootstrap/css/bootstrap.min.css" media="screen" rel=
     "stylesheet">
     <script src="http://code.jquery.com/jquery.js">
-    </script>
-    <script src="src/main.js">
     </script>
 </head>
 <body>
@@ -18,15 +16,18 @@
       <div class="row-fluid">
         <div class="span4 ">
           <div class ="well sidebar-nav">
-             <h4>Choose the cats you like in the order you want them displayed</h4>
-             <h5>You can remove a cat by unchecking the check bix but you will loose your score on that cat.</h5>
-             <div  id="CatsList">
-             </div>
+             <h4>Choose the cat you like </h4>
+             <ul id="cat-list"></ul>
            </div>
         </div>
-        <div class="span8" id="AllCats"></div>
+        <div class="span8" id="Cat">
+          <h4 id="cat-name"></h4>
+          <div id="cat-count"></div>
+          <img id="cat-img" src="" alt="cat">
+        </div>
         <hr>
     </div>
     </div>
+    <script src="src/main.js" ></script>
 </body>
 </html>

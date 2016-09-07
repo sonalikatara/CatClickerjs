@@ -33,6 +33,7 @@ var model = {
         // initialze the view
         catListView.init();
         catView.init();
+        adminView.init();
     },
 
     getCurrentCat: function() {
@@ -50,7 +51,17 @@ var model = {
     incrementClickCounter: function() {
         model.currentCat.clickCount++;
         catView.render();
-    }
+    },
+
+    updateCurrentCat: function() {
+
+        model.currentCat.name = adminView.adCatNameElem.value;
+        model.currentCat.image = adminView.adImgUrlElem.value;
+        model.currentCat.clickCount = adminView.adClicksElem.value;
+        catView.render();
+        catListView.render();
+        adminView.hideAdmin();
+      }
  };
 
 /* ======= View ======= */
@@ -114,12 +125,54 @@ var catListView = {
               return function() {
                   Controler.setCurrentCat(catCopy);
                   catView.render();
+                  adminView.hideAdmin();
                 };
             })(cat));
 
              this.catListElem.appendChild(elem);
         }
     }
+};
+
+var adminView = {
+// store DOM elements for later use
+init : function(){
+    this.adminFrmElem = document.getElementById("frm-admin");
+    this.adCatNameElem  = document.getElementById("catName-admin");
+    this.adImgUrlElem   = document.getElementById("imgUrl-admin");
+    this.adClicksElem   = document.getElementById("clicks-admin");
+    this.btnAdmin = document.getElementById("btn-admin");
+
+    this.hideAdmin();
+    this.render();
+},
+
+render : function(){
+
+     this.btnAdmin.addEventListener('click', function(){
+        adminView.showAdmin();
+     });
+
+     this.adminFrmElem.addEventListener('submit',function(){
+          Controler.updateCurrentCat();
+          adminView.hideAdmin();
+     });
+
+},
+
+hideAdmin : function(){
+    this.adminFrmElem.style.visibility = "hidden";
+},
+
+showAdmin : function(){
+    var crntCat = Controler.getCurrentCat();
+     this.adCatNameElem.value = crntCat.name;
+     this.adImgUrlElem.value  = crntCat.image;
+     this.adClicksElem.value = crntCat.clickCount;
+
+    this.adminFrmElem.style.visibility = "visible";
+}
+
 };
 
 Controler.init();

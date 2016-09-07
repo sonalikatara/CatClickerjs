@@ -1,4 +1,4 @@
-# CatClickerer Premium PRO
+# CatClicker Premium PRO
 Project Requirements for Cat Clicker Premium Pro
 Visuals
 

@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="bootstrap/css/bootstrap.min.css" media="screen" rel=
     "stylesheet">
-    <script src="http://code.jquery.com/jquery.js">
+   <!-- <script src="http://code.jquery.com/jquery.js">-->
     </script>
 </head>
 <body>
@@ -26,13 +26,13 @@
           <img id="cat-img" src="" alt="cat">
         </div>
         <div class="span12"><hr><button id= "btn-admin">Admin</button>
-          <form id="frm-admin" >
+          <div id="frm-admin" >
             <label>Cat Name </label><input type="text" id="catName-admin" /> <br>
             <label>Image URL </label><input type="text" id="imgUrl-admin" /> <br>
             <label>Clicks </label><input type="text" id="clicks-admin" /> <br>
-            <button >Cancel</button>
-            <input type="submit" ></input>
-          </form>
+            <button id="btn-cancel" >Cancel</button>
+            <button id="btn-submit" type="submit" value="submit">Submit</button>
+          </div>
         </div>
     </div>
     </div>

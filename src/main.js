@@ -24,7 +24,7 @@ var model = {
         }]
     };
 
-/* ====== Controler ======= */
+/* ====== ControllSer ======= */
  var Controler = {
     init: function() {
         // set the first cat as the current cat
@@ -142,6 +142,8 @@ init : function(){
     this.adImgUrlElem   = document.getElementById("imgUrl-admin");
     this.adClicksElem   = document.getElementById("clicks-admin");
     this.btnAdmin = document.getElementById("btn-admin");
+    this.btnCancel = document.getElementById("btn-cancel");
+    this.btnSubmit = document.getElementById("btn-submit");
 
     this.hideAdmin();
     this.render();
@@ -153,7 +155,11 @@ render : function(){
         adminView.showAdmin();
      });
 
-     this.adminFrmElem.addEventListener('submit',function(){
+      this.btnCancel.addEventListener('click',function(){
+         adminView.hideAdmin();
+     });
+
+     this.btnSubmit.addEventListener('click',function(){
           Controler.updateCurrentCat();
           adminView.hideAdmin();
      });
